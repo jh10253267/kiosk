@@ -1,6 +1,13 @@
 package kr.sparta.ui;
 
 public class OrderUi {
+    private OrderUi() {
+    }
+    private static final OrderUi instance =  new OrderUi();
+
+    public static OrderUi getInstance() {
+        return instance;
+    }
 
     public void printOrderPage(int wNumber) {
         System.out.println("주문이 완료되었습니다!");
