@@ -32,7 +32,6 @@ public class MainUi {
         System.out.println("6.주문 초기화");
         System.out.println("9.프로그램 종료");
         System.out.println("--------------------------------------------");
-
     }
 
 }

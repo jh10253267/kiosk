@@ -1,24 +1,18 @@
 package kr.sparta.data;
 
-import kr.sparta.MenuEnum;
 import kr.sparta.domain.Menu;
 import kr.sparta.domain.Product;
-
-import java.util.ArrayList;
 import java.util.List;
+import static kr.sparta.data.MenuEnum.*;
 
-import static kr.sparta.MenuEnum.*;
-import static kr.sparta.MenuEnum.BURGER;
-import static kr.sparta.MenuEnum.ICECREAM;
+public enum MenuContext {
+    INSTANCE;
+    private static List<Menu> menuList;
 
-public class MenuContext {
-    //메뉴는 버거,아이스크림,사이드, 음료와 같은 종류를 말한다.
-    private List<Menu> menuList;
-
-    private List<Product> productList;
+    private static List<Product> productList;
 
 
-    public MenuContext() {
+    MenuContext() {
         initializeData();
     }
 
@@ -40,8 +34,8 @@ public class MenuContext {
                 new Product("Drink Test2", "test", 1.1, DRINKS),
                 new Product("Drink Test3", "test", 1.1, DRINKS),
                 new Product("Beer Test1", "test", 1.1, BEER),
-                new Product("Beer Test1", "test", 1.1, BEER),
-                new Product("Beer Test1", "test", 1.1, BEER)
+                new Product("Beer Test2", "test", 1.1, BEER),
+                new Product("Beer Test3", "test", 1.1, BEER)
         );
     }
 

@@ -1,4 +1,4 @@
-package kr.sparta;
+package kr.sparta.data;
 
 import java.util.Arrays;
 
@@ -36,7 +36,7 @@ public enum MenuEnum {
         MenuEnum menuEnum = Arrays.stream(values())
                 .filter(v -> v.menuNumber == number)
                 .findFirst()
-                .orElseThrow(() -> new IllegalArgumentException("test"));
+                .orElseThrow(() -> new IllegalArgumentException("변환할 수 없는 값입니다."));
 
         return menuEnum.getMenuName(number);
     }

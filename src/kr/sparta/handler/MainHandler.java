@@ -1,7 +1,5 @@
 package kr.sparta.handler;
 
-import kr.sparta.Main;
-import kr.sparta.MenuEnum;
 import kr.sparta.domain.Menu;
 import kr.sparta.ui.MainUi;
 
