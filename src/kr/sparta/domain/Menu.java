@@ -14,7 +14,7 @@ public class Menu {
         return name;
     }
 
-    public String getDesciption() {
+    public String getDescription() {
         return description;
     }
 

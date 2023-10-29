@@ -11,7 +11,7 @@ public enum MainHandler {
 
 
     MainHandler() {
-        this.mainUi = MainUi.getInstance();
+        this.mainUi = new MainUi();
     }
 
     public void printMainPage(List<Menu> menuList) {

@@ -6,15 +6,6 @@ import kr.sparta.domain.Menu;
 import java.util.List;
 
 public class MainUi {
-    private MainUi() {
-    }
-
-    private static final MainUi instance = new MainUi();
-
-    public static MainUi getInstance() {
-        return instance;
-    }
-
     public void printMainPage(List<Menu> menuList) {
         System.out.println("--------------------------------------------");
         System.out.println("SHAKESHACK BURGER 에 오신걸 환영합니다.");
@@ -22,8 +13,8 @@ public class MainUi {
         System.out.println("[ SHAKESHACK BURGER MENU ]");
         System.out.println();
         int index = 1;
-        for(Menu m : menuList) {
-            System.out.printf("%d. %-10s| %s\n", index, m.getName(), m.getDesciption());
+        for (Menu m : menuList) {
+            System.out.printf("%d. %-10s| %s\n", index, m.getName(), m.getDescription());
             index++;
         }
         System.out.println();

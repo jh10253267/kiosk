@@ -1,17 +1,17 @@
 package kr.sparta.domain;
 
-import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import java.util.Map;
 
-public class Basket {
-    //장바구니 목록.
-    private static Map<Product, Integer> basket;
-    private static double basketTotalPrice;
+public enum Basket {
+    //장바구니, 주문과 관련된 데이터
+    INSTANCE;
+    private final Map<Product, Integer> basket;
+    private double basketTotalPrice;
 
-    public Basket() {
+    Basket() {
         basket = new HashMap<>();
+        basketTotalPrice = 0.0;
     }
 
     public Map<Product, Integer> getBasket() {
@@ -41,7 +41,5 @@ public class Basket {
     public void addToBasket(Product product) {
         basket.put(product, basket.getOrDefault(product, 0) + 1);
     }
-
-
 }
 
