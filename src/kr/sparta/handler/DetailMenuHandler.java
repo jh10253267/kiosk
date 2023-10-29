@@ -84,6 +84,7 @@ public class DetailMenuHandler {
             switch (choice) {
                 case 1:
                     basketHandler.addToMyBasket(selectedProduct);
+                    detailUi.printCompleteText();
                     break while_loop;
                 case 2:
                     break while_loop;

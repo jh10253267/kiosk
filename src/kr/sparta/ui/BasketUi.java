@@ -29,6 +29,9 @@ public class BasketUi {
         System.out.println();
         System.out.println("1. 확인        2. 취소");
     }
+    public void printBasketResetText() {
+        System.out.println("주문이 초기화되었습니다.");
+    }
 
 
 }

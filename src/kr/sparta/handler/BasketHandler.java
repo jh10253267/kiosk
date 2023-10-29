@@ -53,6 +53,7 @@ public class BasketHandler {
             switch (choice) {
                 case 1:
                     myBasket.clear();
+                    basketUi.printBasketResetText();
                     break while_loop;
                 case 2:
                     break while_loop;

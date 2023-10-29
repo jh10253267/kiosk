@@ -45,4 +45,7 @@ public class DetailUi {
         }
         System.out.println();
     }
+    public void printCompleteText() {
+        System.out.println("장바구니에 담겼습니다.");
+    }
 }

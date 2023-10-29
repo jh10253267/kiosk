@@ -32,9 +32,9 @@ public enum MenuContext {
                 new Product("Ice cream Test3", "test1", 5.4, ICECREAM),
                 new Product("Ice cream Test4", "test1", 5.4, ICECREAM),
                 new Product("Ice cream Test5", "test1", 5.4, ICECREAM),
-                new Product("Drink Test1", "test", 0.1, DRINKS, List.of(new Option("Regular", 0.1), new Option("Large", 0.12))),
-                new Product("Drink Test2", "test", 0.1, DRINKS, List.of(new Option("Regular", 0.1), new Option("Large", 0.12))),
-                new Product("Drink Test3", "test", 0.1, DRINKS, List.of(new Option("Regular", 0.1), new Option("Large", 0.12))),
+                new Product("Drink Test1", "test", 0.1, DRINKS, List.of(new Option("Regular", 0.1), new Option("Large", 0.2))),
+                new Product("Drink Test2", "test", 0.1, DRINKS, List.of(new Option("Regular", 0.1), new Option("Large", 0.2))),
+                new Product("Drink Test3", "test", 0.1, DRINKS, List.of(new Option("Regular", 0.1), new Option("Large", 0.2))),
                 new Product("Beer Test1", "test", 1.1, BEER),
                 new Product("Beer Test2", "test", 1.1, BEER),
                 new Product("Beer Test3", "test", 1.1, BEER)
