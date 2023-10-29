@@ -3,10 +3,9 @@ package kr.sparta.domain;
 import kr.sparta.data.MenuEnum;
 
 public class Product extends Menu{
-    //ex) 불고기버거, 사이
+    //ex) 불고기버거, 사이다
     private double price;
     private MenuEnum menuEnum;
-
 
     public Product(String name, String description, double price, MenuEnum menuEnum) {
         super(name, description);

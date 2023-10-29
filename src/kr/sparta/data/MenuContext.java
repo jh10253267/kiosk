@@ -3,6 +3,7 @@ package kr.sparta.data;
 import kr.sparta.domain.Menu;
 import kr.sparta.domain.Product;
 import java.util.List;
+
 import static kr.sparta.data.MenuEnum.*;
 
 public enum MenuContext {
@@ -37,11 +38,12 @@ public enum MenuContext {
                 new Product("Beer Test2", "test", 1.1, BEER),
                 new Product("Beer Test3", "test", 1.1, BEER)
         );
+
     }
 
-   public List<Product> getProductList() {
+    public List<Product> getProductList() {
         return productList;
-   }
+    }
 
     public List<Menu> getMenuList() {
         return menuList;

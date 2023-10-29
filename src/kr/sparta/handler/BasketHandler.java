@@ -21,6 +21,9 @@ public class BasketHandler {
         return instance;
     }
 
+    //장바구니 화면에서 처리해 줘야할 부분을 처리하는 클래스.
+
+    //내 장바구니를 보여주고 1번을 누르면 주문하기 2번을 누르면 취소하기 처리하는 메소드.
     public void handleMyBasket() throws InterruptedException {
         while_loop:
         while (true) {
@@ -40,11 +43,12 @@ public class BasketHandler {
         }
     }
 
+    //상세 메뉴 페이지에서 상품을 장바구니에 추가해주는 메소드.
     public void addToMyBasket(Product selectedProduct) {
 
         basketList.addToBasket(selectedProduct);
     }
-
+    //장바구니를 초기화해주는 메소드.
     public void clearMyBasket() {
         while_loop:
         while (true) {

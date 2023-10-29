@@ -9,6 +9,7 @@ public enum OrderHandler {
     OrderHandler() {
         orderUi = OrderUi.getInstance();
     }
+    //주문하기 버튼을 눌렀을 때 호출되는 클래스.
     public void printOderConfirmPage() throws InterruptedException {
         ++waitingNumber;
         orderUi.printOrderPage(waitingNumber);

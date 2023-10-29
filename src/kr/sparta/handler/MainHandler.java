@@ -9,6 +9,7 @@ public enum MainHandler {
     INSTANCE;
     private MainUi mainUi;
 
+
     MainHandler() {
         this.mainUi = MainUi.getInstance();
     }

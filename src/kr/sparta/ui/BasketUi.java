@@ -3,6 +3,8 @@ package kr.sparta.ui;
 import kr.sparta.domain.Basket;
 import kr.sparta.domain.Product;
 
+import java.util.Map;
+
 public class BasketUi {
     private static final BasketUi instance = new BasketUi();
 
@@ -17,8 +19,8 @@ public class BasketUi {
         System.out.println("지금과 같이 주문하시겠습니까?");
         System.out.println();
         System.out.println("[ ORDERS ]");
-        for (Product p : basket.getBasket()) {
-            System.out.printf("%-15s| W %.1f | %s\n", p.getName(), p.getPrice(), p.getDesciption());
+        for (Map.Entry<Product, Integer> entry : basket.getBasket().entrySet()) {
+            System.out.printf("%-15s| W %.1f | %d개 | %s\n", entry.getKey().getName(), entry.getKey().getPrice(), entry.getValue().intValue(),entry.getKey().getDesciption());
         }
         System.out.println();
         System.out.println("[ Total ]");
