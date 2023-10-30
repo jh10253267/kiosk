@@ -10,10 +10,9 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 public class DetailMenuHandler {
-    private final DetailUi detailUi = DetailUi.getInstance();
-    private BasketHandler basketHandler = BasketHandler.getInstance();
-    private MenuContext menuContext = MenuContext.INSTANCE;
-    private List<Product> productList;
+    private final DetailUi detailUi = new DetailUi();
+    private final BasketHandler basketHandler = BasketHandler.getInstance();
+    private final MenuContext menuContext = MenuContext.INSTANCE;
 
     private DetailMenuHandler() {
 
@@ -24,15 +23,13 @@ public class DetailMenuHandler {
     public static DetailMenuHandler getInstance() {
         return instance;
     }
-    //메인페이지 -> 디테일 메뉴리스트로 넘어왔고 해당 페이지에서 해주는 동작들은 핸들러에서 처리.
-    //UI클래스들은 단순한 출력만하기. 메인에서 직접 ui를 호출하지 않게하기. 오류가 난다면 해당 부분을 빠르게 특정하고 수정하기 위함.
-    //
-    //디테일페이지에서 해줘야 할 것들 : 해당 메뉴에서 분기되는 부분들. 장바구니에 넣어준다던가 하는 부분들.
-    //handleDetailPage는 메인으로부터 입력받은 메뉴(종류)를 출력하기 위해 메뉴(종류)를 ui로 전달해주고 해당 페이지에서 갈 수 있는 페이지로 이동시켜준다.
+
+    //디테일페이지에서 해줘야 할 것들을 담당하는 클래스 ex) 해당 메뉴에서 분기되는 부분들. 장바구니에 넣어준다던가 하는 부분들.
+    //메인으로부터 입력받은 메뉴(종류)를 출력하기 위해 메뉴(종류)를 ui로 전달해주고 해당 페이지에서 갈 수 있는 페이지로 이동시켜준다.
     public void handleDetailPage(MenuEnum menuName) {
         //메뉴 카테고리에서 특정 번호를 선택하면 그 메뉴 카테고리 이름이 현재 메소드로 전달되고 여러가지 상품이 섞여있는 productList에서 필터링 해주는 부분.
         //예) 버거를 선택함 -> 상품 타입값이 버거인 것만 상품만 추려줘.
-        productList = menuContext.getProductList().stream()
+        List<Product> productList = menuContext.getProductList().stream()
                 .filter(v -> v.getMenuEnum().equals(menuName))
                 .collect(Collectors.toList());
 
@@ -47,8 +44,39 @@ public class DetailMenuHandler {
                 break;
             }
         }
+        //선택된 번호를 기준으로 상품객체를 매칭치켜주는 부분.
         Product selectedProduct = productList.get(menuNumber - 1);
-        //
+        //선택 요구사항 2번 부분.
+        //옵션 핸들러에서 옵션이 있는지 확인하고 적절한 대처를한다.
+        optionHandler(selectedProduct);
+    }
+
+    private void optionHandler(Product selectedProduct) {
+        boolean hasOption = checkExtraOption(selectedProduct);
+        if (hasOption) {
+            while (true) {
+                detailUi.printOptionChoiceText(selectedProduct);
+                int optionChoice = CommonUtil.getNumber();
+                try {
+                    Product modifiedProduct = selectedProduct.createProduct(optionChoice);
+                    printConfirmAddToBasket(modifiedProduct);
+                    break;
+                } catch (Exception e) {
+                    System.out.println("잘못된 입력입니다.");
+                }
+            }
+        } else {
+            printConfirmAddToBasket(selectedProduct);
+        }
+    }
+
+    //옵션이 있는지 확인하는 메소드.
+    private boolean checkExtraOption(Product selectedProduct) {
+        return !selectedProduct.getOptionList().isEmpty();
+    }
+
+    //장바구니에 추가할 것인지 확인하는 부분.
+    private void printConfirmAddToBasket(Product selectedProduct) {
         while_loop:
         while (true) {
             detailUi.printChoiceConfirmText(selectedProduct);
@@ -56,6 +84,7 @@ public class DetailMenuHandler {
             switch (choice) {
                 case 1:
                     basketHandler.addToMyBasket(selectedProduct);
+                    detailUi.printCompleteText();
                     break while_loop;
                 case 2:
                     break while_loop;
@@ -68,3 +97,4 @@ public class DetailMenuHandler {
 
 
 }
+

@@ -9,8 +9,9 @@ public enum MainHandler {
     INSTANCE;
     private MainUi mainUi;
 
+
     MainHandler() {
-        this.mainUi = MainUi.getInstance();
+        this.mainUi = new MainUi();
     }
 
     public void printMainPage(List<Menu> menuList) {

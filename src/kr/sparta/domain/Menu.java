@@ -14,16 +14,8 @@ public class Menu {
         return name;
     }
 
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public String getDesciption() {
+    public String getDescription() {
         return description;
-    }
-
-    public void setDescription(String desciption) {
-        this.description = desciption;
     }
 
     @Override
